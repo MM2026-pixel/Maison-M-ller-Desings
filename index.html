@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pen</title>
+  </head>
+  <body>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
+<header class="navbar">
+  <div class="logo-container">
+    <div class="logo-text">
+      Maison Müller
+      <span>Interior & Design</span>
+    </div>
+  </div>
+  <nav>
+    <a href="#about" class="nav-link active" onclick="switchPage('home')">Startseite</a>
+    <a href="#products" class="nav-link" onclick="switchPage('products')">Kollektion & Shop</a>
+    <a href="#partner" class="nav-link" onclick="switchPage('home'); scrollToSection('partner')">Partner</a>
+    <a href="#contact" class="btn-nav" onclick="switchPage('home'); scrollToSection('contact')">Kontakt</a>
+  </nav>
+</header>
+
+<!-- STARTSEITE / HOME VIEW -->
+<main id="view-home" class="view-page active">
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="motto-headline">„Beautiful Spaces. For Every Budget.“</h1>
+      <p>Nachhaltiges Design für jedes Zuhause – 100 % ökologisch, tierfreundlich & bezahlbar durch exklusive Eigenkreationen und starke Kooperationen.</p>
+      <div class="hero-buttons">
+        <button class="btn" onclick="switchPage('products')">Kollektion entdecken</button>
+        <button class="btn btn-outline" onclick="scrollToSection('partner')">Partner-Konzept</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <h2>Design mit Verantwortung</h2>
+    <p>Bei Maison Müller in Oschatz verbinden wir ästhetische Raumkonzepte mit Rücksicht auf Mensch, Umwelt und Tier. Wir glauben daran, dass stilvolles Wohnen weder die Natur belasten noch unbezahlbar sein muss.</p>
+  </section>
+
+  <section id="nachhaltigkeit" class="section eco-bg">
+    <h2>Ökologisch, Natur- & Tierfreundlich</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>🌱 Ökologische Materialien</h3>
+        <p>Wir nutzen nachhaltige Rohstoffe, nachwachsendes Holz und schadstofffreie, umweltschonende Lacke und Farben.</p>
+      </div>
+      <div class="card">
+        <h3>🐾 100 % Tierfreundlich</h3>
+        <p>Kein Leder, keine Pelze oder tierische Klebstoffe. Alle Textilien und Materialien sind komplett vegan und tierleidfrei.</p>
+      </div>
+      <div class="card">
+        <h3>♻️ Langlebig & Nachhaltig</h3>
+        <p>Unsere Eigenanfertigungen sind auf Langlebigkeit ausgelegt, um Ressourcen zu schonen und Müll zu vermeiden.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="partner" class="section">
+    <h2>Design für jedes Budget</h2>
+    <p class="section-subtitle">Gutes Design darf kein Luxusgut sein. Durch unsere Kooperationen bringen wir stilvolle Einrichtung auch für den kleineren Geldbeutel in jedes Zuhause.</p>
+    
+    <div class="grid">
+      <div class="card partner-card">
+        <h3>Exklusive Eigenfertigung</h3>
+        <p>Maßgeschneiderte Unikate und individuelle Raumkonzepte direkt aus unserer eigenen Design-Werkstatt in Oschatz.</p>
+      </div>
+      <div class="card partner-card highlight">
+        <h3>Starke Partner-Kollektionen</h3>
+        <p>In Zusammenarbeit mit großen Partnern entwickeln wir erschwingliche Einrichtungsideen, die ökologisch und modern sind.</p>
+      </div>
+    </div>
+
+    <div class="partner-links-container">
+      <h3>Unsere offiziellen Partner-Shops</h3>
+      <div class="partner-buttons">
+        <a href="https://www.moebel-boss.de" target="_blank" rel="noopener" class="partner-btn">
+          Möbel Boss besuchen ↗
+        </a>
+        <a href="https://www.roller.de" target="_blank" rel="noopener" class="partner-btn">
+          Roller besuchen ↗
+        </a>
+        <a href="https://jysk.de" target="_blank" rel="noopener" class="partner-btn">
+          JYSK besuchen ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section gray-bg">
+    <h2>Beratung oder Anfrage</h2>
+    <p class="section-subtitle">Besuchen Sie uns in Oschatz oder schreiben Sie uns direkt Ihr Anliegen.</p>
+    
+    <!-- Formspree Einbindung für echten E-Mail-Versand -->
+    <form action="https://formspree.io/f/xzedvqel" method="POST" id="contactForm" class="contact-form">
+      <input type="text" name="name" placeholder="Ihr Name" required>
+      <input type="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
+      <select name="anliegen" required>
+        <option value="" disabled selected>Worum geht es?</option>
+        <option value="einzelanfertigung">Individuelles Raumkonzept / Eigenfertigung</option>
+        <option value="budget">Beratung für bezahlbare Einrichtung (Partner)</option>
+        <option value="sonstiges">Allgemeine Anfrage</option>
+      </select>
+      <textarea name="message" rows="4" placeholder="Ihre Nachricht" required></textarea>
+      <button type="submit" class="btn">Anfrage senden</button>
+    </form>
+    <div id="formFeedback" class="feedback-msg"></div>
+  </section>
+</main>
+
+<!-- EIGENE PRODUKTSEITE / PRODUCTS VIEW -->
+<main id="view-products" class="view-page">
+  <section class="products-header">
+    <h1>Unsere Produkte & Kollektionen</h1>
+    <p>Klicken Sie auf ein Möbelstück, um es direkt beim Partner zu bestellen oder eine persönliche Beratung anzufordern.</p>
+    
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterProducts('all')">Alle anzeigen</button>
+      <button class="filter-btn" onclick="filterProducts('eigen')">Eigenfertigung</button>
+      <button class="filter-btn" onclick="filterProducts('partner')">Partner-Kollektion</button>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="grid">
+      <!-- Produkt 1: Eigenfertigung -> Klick führt zur Beratung -->
+      <div class="card product-card clickable" data-category="eigen" onclick="scrollToContact('Esstisch Eco Oak')">
+        <div class="product-badge">Eigenfertigung (Beratung)</div>
+        <div class="placeholder-img room-img-1">Esstisch "Eco Oak"</div>
+        <h3>Esstisch "Eco Oak"</h3>
+        <p class="product-desc">Aus regionalem FSC-Massivholz mit naturfreundlicher Öloberfläche. Maßanfertigung aus Oschatz.</p>
+        <p class="price">489,00 €</p>
+        <span class="card-action-text">Beratung anfragen →</span>
+      </div>
+
+      <!-- Produkt 2: Eigenfertigung -->
+      <div class="card product-card clickable" data-category="eigen" onclick="scrollToContact('Sessel Lounge Green')">
+        <div class="product-badge">Eigenfertigung (Beratung)</div>
+        <div class="placeholder-img room-img-2">Sessel "Lounge Green"</div>
+        <h3>Sessel "Lounge Green"</h3>
+        <p class="product-desc">Bequemer Polstersessel mit Bezug aus 100 % recycelten Textilfasern. Tierfreundlich & vegan.</p>
+        <p class="price">329,00 €</p>
+        <span class="card-action-text">Beratung anfragen →</span>
+      </div>
+
+      <!-- Produkt 3: Partner JYSK -> Direktlink -->
+      <a href="https://jysk.de" target="_blank" rel="noopener" class="card product-card partner-link-card" data-category="partner">
+        <div class="product-badge partner-badge">Partner: JYSK</div>
+        <div class="placeholder-img room-img-3">Regal "Flex-Basic"</div>
+        <h3>Regal "Flex-Basic" ↗</h3>
+        <p class="product-desc">Preiswert, nachhaltig verpackt und ideal für flexible Wohnräume.</p>
+        <p class="price">79,99 €</p>
+        <span class="card-action-text external">Direkt bei JYSK bestellen ↗</span>
+      </a>
+
+      <!-- Produkt 4: Partner Möbel Boss -> Direktlink -->
+      <a href="https://moebel-boss.de/p/ecksofa-holly-243-x-155-cm-light-brown-4585010.10" target="_blank" rel="noopener" class="card product-card partner-link-card" data-category="partner">
+        <div class="product-badge partner-badge">Partner: Möbel Boss</div>
+        <div class="placeholder-img room-img-4">Sofa "Ecksofa Holly"</div>
+        <h3>Sofa "Ecksofa Holly" ↗</h3>
+        <p class="product-desc">Kompaktes Ecksofa mit pflanzlich gegerbtem Stoffbezug.</p>
+        <p class="price">299,00 €</p>
+        <span class="card-action-text external">Direkt bei Möbel Boss bestellen ↗</span>
+      </a>
+
+      <!-- Produkt 5: Partner Roller -> Direktlink -->
+      <a href="https://www.roller.de" target="_blank" rel="noopener" class="card product-card partner-link-card" data-category="partner">
+        <div class="product-badge partner-badge">Partner: Roller</div>
+        <div class="placeholder-img room-img-5">Lampe "Lumina Wood"</div>
+        <h3>Lampe "Lumina Wood" ↗</h3>
+        <p class="product-desc">Energieeffiziente Beleuchtung aus nachwachsendem Hartholz.</p>
+        <p class="price">39,99 €</p>
+        <span class="card-action-text external">Direkt bei Roller bestellen ↗</span>
+      </a>
+
+      <!-- Produkt 6: Eigenfertigung -->
+      <div class="card product-card clickable" data-category="eigen" onclick="scrollToContact('Sideboard Forest Line')">
+        <div class="product-badge">Eigenfertigung (Beratung)</div>
+        <div class="placeholder-img room-img-6">Sideboard "Forest Line"</div>
+        <h3>Sideboard "Forest Line"</h3>
+        <p class="product-desc">Elegantes Aufbewahrungsmöbel mit Bio-Wachs-Finish aus unserer Werkstatt.</p>
+        <p class="price">540,00 €</p>
+        <span class="card-action-text">Beratung anfragen →</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 Maison Müller – Standpunkt: Oschatz | Beautiful Spaces. For Every Budget.</p>
+</footer>
